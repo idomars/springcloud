@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: product
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG-SERVER
+      profile: prod
+      username: min
+      password: 12263520
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5688
+    username: admin
+    password: admin
+  jpa:
+    show-sql: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://cloud1:9001/eureka/,http://cloud2:9002/eureka/
+  instance:
+    prefer-ip-address: true
+#logging:
+#  level:
+server:
+  port: 9040
+#    org.springframework.cloud.netflix.feign: debug
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: trace

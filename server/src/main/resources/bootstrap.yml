@@ -1,0 +1,41 @@
+spring:
+  cloud:
+    config:
+      profile: prod
+      discovery:
+        enabled: true
+        service-id: config-server
+      label: master
+      name: server
+      username: min
+      password: 12263520
+  application:
+    name: server
+  rabbitmq:
+      host: 127.0.0.1
+      port: 5688
+      username: admin
+      password: admin
+  #kafka配置
+  kafka:
+    bootstrap-servers: 47.99.89.202:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      batch-size: 13684
+      buffer-memory: 33554432
+    consumer:
+      group-id: server-group
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+server:
+  port: 9011
+eureka:
+  client:
+    service-url:
+      ##不可以配置在git上否则默认会读取8761默认接口s
+      defaultZone: http://cloud1:9001/eureka/
+  instance:
+    hostname: cloud.com

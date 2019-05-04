@@ -1,0 +1,34 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/12263520/spring-cloud-config-repo
+          username: 120081275@qq.com
+          password: m12263520
+          basedir: /Users/min/coding/project/spring-cloud/springcloud/GitBase
+          search-paths: spring-config-repo
+  application:
+    name: config-server
+  security:
+    user:
+      name: min
+      password: 12263520
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5688
+    username: admin
+    password: admin
+server:
+  port: 9030
+eureka:
+  client:
+    service-url:
+      defaultZone: http://cloud1:9001/eureka/
+  instance:
+    hostname: cloud.com
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

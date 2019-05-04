@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG-SERVER
+      profile: prod
+    stream:
+      bindings:
+        myMessage:
+          group: order
+          content-type: application/json
+  zipkin:
+    base-url: http://localhost:9411/
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://cloud1:9001/eureka/,http://cloud2:9002/eureka/
+  instance:
+    prefer-ip-address: true
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
+server:
+  port: 9050

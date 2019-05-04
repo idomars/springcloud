@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: eurek-register-server
+server:
+  port: 9001
+eureka:
+  client:
+    service-url:
+      defaultZone : http://cloud2:9002/eureka/
+  instance:
+    hostname: cloud1

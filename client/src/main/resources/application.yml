@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: cloud-ribbon-client
+server:
+  port: 9020
+eureka:
+  client:
+    service-url:
+      defaultZone: http://cloud.com:9001/eureka/,http://cloud.com:9002/eureka/
+  instance:
+    hostname: ribbon

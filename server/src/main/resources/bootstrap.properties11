@@ -1,0 +1,11 @@
+spring.application.name=server
+
+spring.cloud.config.discovery.enabled=true
+spring.cloud.config.discovery.service-id=config-server
+spring.cloud.config.label=master
+spring.cloud.config.profile=test
+#spring.cloud.config.uri=http://cloud.com:9030/
+
+eureka.client.service-url.defaultZone=http://cloud.com:9001/eureka/
+
+server.port=9011

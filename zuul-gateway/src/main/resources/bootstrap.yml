@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG-SERVER
+      profile: prod
+eureka:
+  client:
+    service-url:
+      defaultZone: http://cloud1:9001/eureka/,http://cloud2:9002/eureka/
+  instance:
+    prefer-ip-address: true
